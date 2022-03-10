@@ -20,12 +20,14 @@ public class BackgroundLoop : MonoBehaviour
         BoxCollider2D backgroundCollider =
             GetComponent<BoxCollider2D>();
         width = backgroundCollider.size.x;
+        Debug.Log("Width : " + width);
     }
-    void Start()
+    void Update()
     {
         // 현재 위치가 원점에서 왼쪽으로 width 이상 이동했을 때 위치를 재배치
-        if (transform.position.x<=-width)
+        if (transform.position.x<= -width)
         {
+            Debug.Log("Reposition");
             Reposition();
         }
     }
@@ -39,9 +41,4 @@ public class BackgroundLoop : MonoBehaviour
         //-20.48+40.48=20.48;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

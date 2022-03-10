@@ -501,7 +501,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &457054642
 Animator:
   serializedVersion: 3
@@ -844,8 +844,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameover: 0
-  scoreText: {fileID: 0}
-  gameoverUI: {fileID: 0}
+  scoreText: {fileID: 1674021700}
+  gameoverUI: {fileID: 1968046135}
 --- !u!4 &1347330640
 Transform:
   m_ObjectHideFlags: 0
@@ -1212,7 +1212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1968046136
 RectTransform:
   m_ObjectHideFlags: 0
