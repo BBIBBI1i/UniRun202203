@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
 
     private int score = 0; // 게임 점수
 
+    public GameObject menuPanel; // 메뉴 패널 변수
+
+    public int hpCount = 2; // 실제 사용자 생명력
+    public Text hpText; // 사용자에게 보여질 생명력 UI
+
     // 게임 시작과 동시에 싱글턴을 구성
     private void Awake()
     {
@@ -36,7 +41,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+    private void Start()
+    {
+        // 사용자에게 보여질 생명력을 실제 생명력으로 등록
+        hpText.text = hpCount.ToString();
+    }
 
     // 게임오버 상태에서 게임을 재시작할 수 있게 하는 처리
     void Update()
@@ -68,5 +77,37 @@ public class GameManager : MonoBehaviour
         isGameover = true;
         //게임오버 UI를 활성화
         gameoverUI.SetActive(true);
+    }
+
+    public void OnMenu()
+    {
+        menuPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void OffMenu()
+    {
+        menuPanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+    }
+
+    public bool Crash()
+    {
+        // hpCount--;
+        // hpText.text = hpCount.ToString(); 이거두개아래하나랑똑같음
+        hpText.text = ""+ --hpCount;
+        if (hpCount <= 0) return true;
+        return false;
     }
 }
