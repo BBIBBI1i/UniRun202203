@@ -129,6 +129,24 @@ public class PlayerController : MonoBehaviour
         {
             if (GameManager.instance.Crash()==true)Die();
         }
+
+        if (isDead) return;
+        switch(collision.tag)
+        {
+            case "Dead":
+                Die();
+                break;
+            case "Spark":
+                if (GameManager.instance.Crash() == true) Die();
+                break;
+            case "Coin":
+                GameManager.instance.AddScore(100);
+                collision.gameObject.SetActive(false);
+                break;
+            default:
+                break;
+            
+        }
     }
 
     //유니티에서 충돌은 굉장히 다양하게 사용
